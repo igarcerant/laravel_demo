@@ -14,7 +14,7 @@
     </a>
 </li>
 <li class="side-menus {{ Request::is('home') ? 'active' : '' }}">
-    <a class="nav-link" href="/">
+    <a class="nav-link" href="/vehiculos">
         <i class=" fas fa-bus"></i><span>Vehículos</span>
     </a>
 </li>
