@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vehiculo;
+use App\Models\ChequeoVirtual;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
@@ -125,11 +126,18 @@ class VehiculoController extends Controller
         return redirect()->route('vehiculos.index');
     }
 
-    public function ubicacionVehi($id)
+    public function ubicacionVehi(Request $request)
     {
-        $vehiculo=VehiculoUbicacion::find($id);
+        //$latitud = 10.455;
+        //$longitud = -66.577;
+        //$zoom = 15;      
+        $idV = $request->id;
+        
+        $posicion = ChequeoVirtual::where('id_vehiculo',$idV)->orderByDesc('fecha_hora')->limit(1)->get();
+        
+        return view('vehiculos.ubicacion')->with(['posicion' => $posicion]);
         
 
-        return view('vehiculos.ubicacion',compact('vehiculo'));
+
     }
 }

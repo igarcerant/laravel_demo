@@ -14,56 +14,40 @@
 
                             <a class="btn btn-warning" href="{{ route('vehiculos.create') }}">Nuevo</a>
                             
-                            <table class="table table-striped mt-2">
-                                <thead style="background-color: green;">
-                                    <th style="display:none;">ID</th>
-                                    <th style="color:#fff;">Código</th>
-                                    <th style="color:#fff;">Placa</th>
-                                    <th style="color:#fff;">Propietario</th>
-                                    <th style="color:#fff;">Marca</th>
-                                    <th style="color:#fff;">Modelo</th>
-                                    <th style="color:#fff;">Año</th>
-                                    <th style="color:#fff;">Asientos</th>
-                                    <th style="color:#fff;">Acciones</th>
-                                </thead>
-                                <tbody>
-                                    @foreach($vehiculos as $vehiculo)
-                                        <tr>
-                                            <td style="display:none;">{{$vehiculo->id}}</td>
-                                            <td>{{$vehiculo->codigo}}</td>
-                                            <td>{{$vehiculo->placa}}</td>
-                                            <td>{{$vehiculo->propietario}}</td>
-                                            <td>{{$vehiculo->marca}}</td>
-                                            <td>{{$vehiculo->modelo}}</td>
-                                            <td>{{$vehiculo->anio}}</td>
-                                            <td>{{$vehiculo->cant_asientos}}</td>
-                                            
-                                            <td>
-                                                <a class="btn btn-primary" href="{{ route('vehiculos.edit', $vehiculo->id) }}">Editar</a>
-
-                                                {!! Form::open(['method' => 'DELETE', 'route'=>['vehiculos.destroy', $vehiculo->id], 'style'=>'display:inline']) !!}
-                                                    {!! Form::submit('Eliminar', ['class'=>'btn btn-danger']) !!}    
-                                                {!! Form::close() !!}
-                                                <a class="btn btn-primary" href="{{ route('vehiculos.edit', $vehiculo->id) }}">Ubicación</a>                                                
-                                            </td>
-                                        </tr>    
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            <div class="pagination justify-content-end">
-                                {!! $vehiculos->links() !!}
-                            </div>    
-                            <div>
-                                <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                                 src="https://www.openstreetmap.org/export/embed.html?bbox=-69.64233398437501%2C8.91220689226023%2C-63.51196289062501%2C11.990965150182246&amp;layer=mapnik&amp;marker=10.455401826918397%2C-66.5771484375" style="border: 1px solid black">
-                                     
-                                 </iframe>
-                                 <br/>
-                                 <small><a href="https://www.openstreetmap.org/?mlat=10.455&amp;mlon=-66.577#map=8/10.455/-66.577">Ver mapa más grande</a></small>
-                            </div>
-                            <div id="map">
+                            
+                           <div id="map">
+                               
+                                
+                            
                                 
                             </div>
+                           <script type="text/javascript">
+                               function mostrarUbicacion(lat, long, zom) {
+
+                                   
+                                   var map = L.map('map').setView([lat, long], zom);
+
+                                   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                                                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                                maxZoom: 50,
+                                                id: 'mapbox/streets-v11',
+                                                tileSize: 512,
+                                                zoomOffset: -1,
+                                                accessToken: 'pk.eyJ1IjoibG9yZW5hY2ciLCJhIjoiY2wxZnptb3E5MHQxMzNxcDhzcWg3aDhnNCJ9.vdevPEi2zQbWAKC1FM8orA'
+                                            }).addTo(map);
+
+                                   var marker = L.marker([lat, long]).addTo(map);
+                               }
+                            
+                               
+                               var lat = {{$posicion[0]->latitud}};
+                               var long = {{$posicion[0]->longitud}};
+                               
+                               
+                               mostrarUbicacion(lat, long, 15);
+                               
+                               
+                           </script>
                         </div>
                     </div>
                 </div>
