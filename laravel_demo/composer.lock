@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ad4cd1ae7ac2477290f1aa0d0dba3c1",
+    "content-hash": "6f66d5e70a28a7c35d177460077b9976",
     "packages": [
         {
             "name": "brick/math",
@@ -507,6 +507,55 @@
                 }
             ],
             "time": "2022-02-20T15:07:15+00:00"
+        },
+        {
+            "name": "gajus/dindent",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gajus/dindent.git",
+                "reference": "d81c3a6f78fbe1ab26f5e753098bbbef6b6a9f3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gajus/dindent/zipball/d81c3a6f78fbe1ab26f5e753098bbbef6b6a9f3c",
+                "reference": "d81c3a6f78fbe1ab26f5e753098bbbef6b6a9f3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gajus\\Dindent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gajus Kuizinas",
+                    "email": "gk@anuary.com"
+                }
+            ],
+            "description": "HTML indentation library for development and testing.",
+            "homepage": "https://github.com/gajus/dindent",
+            "keywords": [
+                "format",
+                "html",
+                "indent"
+            ],
+            "support": {
+                "issues": "https://github.com/gajus/dindent/issues",
+                "source": "https://github.com/gajus/dindent/tree/master"
+            },
+            "time": "2014-10-08T10:03:04+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -1504,6 +1553,68 @@
                 "source": "https://github.com/LaravelCollective/html"
             },
             "time": "2022-02-08T21:02:54+00:00"
+        },
+        {
+            "name": "larswiegers/laravel-maps",
+            "version": "v0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LarsWiegers/laravel-maps.git",
+                "reference": "fd9c65320c4c83c7f2d600e3e08a48686ee97806"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LarsWiegers/laravel-maps/zipball/fd9c65320c4c83c7f2d600e3e08a48686ee97806",
+                "reference": "fd9c65320c4c83c7f2d600e3e08a48686ee97806",
+                "shasum": ""
+            },
+            "require": {
+                "gajus/dindent": "^2.0.2",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larswiegers\\LaravelMaps\\LaravelMapsServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelMaps": "Larswiegers\\LaravelMaps\\LaravelMapsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larswiegers\\LaravelMaps\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Wiegers",
+                    "email": "larswiegers@live.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A new way to handle maps in your laravel applications.",
+            "homepage": "https://github.com/larswiegers/laravel-maps",
+            "keywords": [
+                "laravel-maps",
+                "larswiegers"
+            ],
+            "support": {
+                "issues": "https://github.com/LarsWiegers/laravel-maps/issues",
+                "source": "https://github.com/LarsWiegers/laravel-maps/tree/v0.11"
+            },
+            "time": "2022-03-23T09:30:51+00:00"
         },
         {
             "name": "league/commonmark",

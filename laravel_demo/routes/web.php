@@ -33,3 +33,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('vehiculos', VehiculoController::class);
 });
+
+Route::get('/vehiculoUbi', [VehiculoController::class, 'ubicacionVehi'])->name('vehiculoUbi'); 
+
